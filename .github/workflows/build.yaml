@@ -39,6 +39,7 @@ jobs:
         run: |
           git clone -b v${{ env.version }} --recurse-submodules https://github.com/denoland/deno.git
           cd deno
+          rm /__w/begin-deno-runtime/begin-deno-runtime/deno/target/release/ninja_gn_binaries-20221218/linux-amd64/gn
           V8_FROM_SOURCE=1 cargo build --release
 
       - name: Verify the build
